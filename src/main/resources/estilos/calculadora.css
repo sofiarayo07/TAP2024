@@ -1,0 +1,7 @@
+#color-operador{
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(
+    rgb(255,255,255),
+    rgb(144, 94, 155)
+    );
+}

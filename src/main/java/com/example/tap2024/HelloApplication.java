@@ -9,6 +9,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import vistas.Calculadora;
+import vistas.Memorama;
 
 import java.io.IOException;
 
@@ -16,7 +17,7 @@ public class HelloApplication extends Application {
 
     private MenuBar mnbPrincipal;
     private Menu menParcial1, menParcial2, menSalir;
-    private MenuItem mitCalculadora, mitSalir;
+    private MenuItem mitCalculadora,mitMemorama, mitSalir;
     private BorderPane bdpPanel;
     @Override
     public void start(Stage stage) throws IOException {
@@ -39,8 +40,14 @@ public class HelloApplication extends Application {
     private void CrearMenu() {
         /* MENU PRIMER PARCIAL */
         mitCalculadora= new MenuItem("Calculadora");
+        mitCalculadora.setOnAction(event->new Calculadora());
+
+        mitMemorama= new MenuItem("Memorama");
+        mitMemorama.setOnAction(event->new Memorama());
+
         menParcial1=new Menu("Primer Parcial");
         menParcial1.getItems().addAll(mitCalculadora);
+        menParcial1.getItems().addAll(mitMemorama);
 
 
         /* MENU SEGUNDO PARCIAL */

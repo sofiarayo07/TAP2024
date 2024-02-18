@@ -1,0 +1,50 @@
+
+.button{
+    -fx-background-color: #9ab6e1;
+    -fx-text-fill: black;
+    -fx-border-color: #a19999;
+    -fx-font-size: 14px;
+    -fx-border-width: 2px;
+    -fx-padding: 8px;
+}
+
+/* Estilo para la etiqueta */
+.label {
+    -fx-font-size: 20px; /* Tamaño de la fuente */
+    -fx-padding: 10px; /*Espaciado interno*/
+    -fx-spacing: 10px; /*Espaciado externo*/
+    -fx-border-color: #9ab6e1;
+    -fx-background-color: white;
+    -fx-text-fill: #96ce8a;
+}
+
+/* Estilo para el cuadro de texto */
+.text-field {
+    -fx-font-size: 14px; /* Tamaño de la fuente */
+    -fx-padding: 10px; /*Espaciado externo*/
+    -fx-spacing: 10px; /*Espaciado interno*/
+}
+
+/* Estilo para el contenedor HBox */
+.hbox {
+    -fx-spacing: 10px; /* Espaciado entre elementos hijos */
+    -fx-padding: 10px; /* Espaciado interno */
+}
+
+/* Estilo para el contenedor VBox */
+.vbox {
+    -fx-spacing: 10px; /* Espaciado entre elementos hijos */
+    -fx-padding: 10px; /* Espaciado interno */
+}
+
+/* Estilo para el contenedor GridPane */
+.grid-pane {
+    -fx-hgap: 10px; /* Espacio horizontal entre celdas */
+    -fx-vgap: 10px; /* Espacio vertical entre celdas */
+}
+
+.root{
+    -fx-background-color: #e4cdef;
+    -fx-background-image: url('https://cdn.pixabay.com/animation/2023/03/10/19/54/19-54-45-121_512.gif');
+    -fx-background-repeat: no-repeat;
+}
