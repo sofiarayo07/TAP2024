@@ -41,10 +41,12 @@
 .grid-pane {
     -fx-hgap: 10px; /* Espacio horizontal entre celdas */
     -fx-vgap: 10px; /* Espacio vertical entre celdas */
+    -fx-border-color: black;
 }
 
 .root{
     -fx-background-color: #e4cdef;
-    -fx-background-image: url('https://cdn.pixabay.com/animation/2023/03/10/19/54/19-54-45-121_512.gif');
+    /*-fx-background-image: url('https://cdn.pixabay.com/animation/2023/03/10/19/54/19-54-45-121_512.gif');*/
     -fx-background-repeat: no-repeat;
+    -fx-background-size:cover;
 }
