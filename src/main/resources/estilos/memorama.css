@@ -1,28 +1,10 @@
-
-.button{
+.button {
     -fx-background-color: #9ab6e1;
     -fx-text-fill: black;
     -fx-border-color: #a19999;
     -fx-font-size: 14px;
     -fx-border-width: 2px;
     -fx-padding: 8px;
-}
-
-/* Estilo para la etiqueta */
-.label {
-    -fx-font-size: 20px; /* Tamaño de la fuente */
-    -fx-padding: 10px; /*Espaciado interno*/
-    -fx-spacing: 10px; /*Espaciado externo*/
-    -fx-border-color: #9ab6e1;
-    -fx-background-color: white;
-    -fx-text-fill: #96ce8a;
-}
-
-/* Estilo para el cuadro de texto */
-.text-field {
-    -fx-font-size: 14px; /* Tamaño de la fuente */
-    -fx-padding: 10px; /*Espaciado externo*/
-    -fx-spacing: 10px; /*Espaciado interno*/
 }
 
 /* Estilo para el contenedor HBox */
@@ -44,9 +26,39 @@
     -fx-border-color: black;
 }
 
-.root{
-    -fx-background-color: #e4cdef;
-    /*-fx-background-image: url('https://cdn.pixabay.com/animation/2023/03/10/19/54/19-54-45-121_512.gif');*/
-    -fx-background-repeat: no-repeat;
-    -fx-background-size:cover;
+/* Estilo para la etiqueta */
+.label {
+    -fx-font-size: 20px; /* Tamaño de la fuente */
+    -fx-padding: 10px; /* Espaciado interno */
+    -fx-spacing: 10px; /* Espaciado externo */
+}
+
+/* Estilo para la etiqueta de información */
+.lbl-info {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333333;
+}
+
+/* Estilo para las etiquetas de puntuación */
+.lbl-success {
+    -fx-background-color: #28a745;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-padding: 5px;
+    -fx-border-radius: 5px;
+}
+
+.lbl-danger {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-padding: 5px;
+    -fx-border-radius: 5px;
+}
+
+/* Estilo para el cuadro de texto */
+.text-field {
+    -fx-font-size: 14px; /* Tamaño de la fuente */
+    -fx-padding: 10px; /* Espaciado interno */
+    -fx-spacing: 10px
 }

@@ -1,7 +1,24 @@
-#color-operador{
-    -fx-text-fill: white;
-    -fx-background-color: linear-gradient(
-    rgb(255,255,255),
-    rgb(144, 94, 155)
-    );
+.color-operador {
+    -fx-background-color: #FFA500;
+}
+
+.text-field {
+    -fx-font-size: 18px;
+    -fx-alignment: center-right;
+}
+
+.button {
+    -fx-background-color: rgba(42, 124, 224, 0.3);
+    -fx-text-fill: #460505;
+}
+
+
+.button:hover {
+    -fx-background-color: #a0e8a2;
+}
+.root{
+    -fx-background-image: url('https://rukminim2.flixcart.com/image/850/1000/xif0q/sticker/z/g/i/aesthetic-bts-phone-stickers-small-1-na-5-1-yaduvanshi-original-imagzg4sp82f3ecb.jpeg?q=90&crop=false');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center;
 }
