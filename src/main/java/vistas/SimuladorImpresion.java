@@ -26,12 +26,16 @@ public class SimuladorImpresion extends Stage {
     private boolean simulacionActiva = false;
     private BlockingQueue<TareaImpresion> colaTareasPendientes = new LinkedBlockingQueue<>();
     private ObservableList<TareaImpresion> listaTareasIniciales = FXCollections.observableArrayList();
+    private ObservableList<TareaImpresion> nuevasTareas = FXCollections.observableArrayList();
+    private int contadorTareas = 0; // Contador global para los números de archivo
 
     public SimuladorImpresion() {
         CrearUI();
         this.setTitle("Simulador de Impresión");
         this.setScene(escena);
         this.show();
+        escena.getStylesheets()
+                .add(getClass().getResource("/estilos/simulador.css").toString());
     }
 
     private void CrearUI() {
@@ -63,15 +67,20 @@ public class SimuladorImpresion extends Stage {
     }
 
     private void agregarTarea() {
+        Random random = new Random();
+        contadorTareas++; // Incrementar el contador global de tareas
+        int numeroArchivo = contadorTareas;
+        String nombreArchivo = generarNombreArchivo();
+        int hojasImprimir = random.nextInt(20) + 1; // Genera un número aleatorio entre 1 y 20
+        String horaAcceso = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        TareaImpresion tarea = new TareaImpresion(numeroArchivo, nombreArchivo, hojasImprimir, horaAcceso);
+
         if (!simulacionActiva) {
-            Random random = new Random();
-            int numeroArchivo = listaTareasIniciales.size() + 1;
-            String nombreArchivo = generarNombreArchivo();
-            int hojasImprimir = random.nextInt(20) + 1; // Genera un número aleatorio entre 1 y 20
-            String horaAcceso = LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-            TareaImpresion tarea = new TareaImpresion(numeroArchivo, nombreArchivo, hojasImprimir, horaAcceso);
             listaTareasIniciales.add(tarea);
             colaTareasPendientes.add(tarea);
+            tablaTareas.getItems().add(tarea);
+        } else {
+            nuevasTareas.add(tarea);
             tablaTareas.getItems().add(tarea);
         }
     }
@@ -92,6 +101,9 @@ public class SimuladorImpresion extends Stage {
         } else {
             btnControlSimulacion.setText("Iniciar Simulación");
             progressBar.setVisible(false);
+            // Mover nuevas tareas a la cola de tareas pendientes cuando se detenga la simulación
+            colaTareasPendientes.addAll(nuevasTareas);
+            nuevasTareas.clear();
         }
     }
 
@@ -99,16 +111,16 @@ public class SimuladorImpresion extends Stage {
         Task<Void> simulacionTask = new Task<>() {
             @Override
             protected Void call() throws Exception {
-                while (simulacionActiva || !colaTareasPendientes.isEmpty()) {
+                while (simulacionActiva && !colaTareasPendientes.isEmpty()) {
                     TareaImpresion tarea = colaTareasPendientes.poll();
                     if (tarea != null) {
                         Platform.runLater(() -> tablaTareas.getItems().remove(tarea));
                         simularImpresion(tarea);
                     } else if (simulacionActiva && colaTareasPendientes.isEmpty()) {
-                        // Detener la simulación si no hay tareas pendientes
-                        Platform.runLater(() -> controlSimulacion());
+                        Thread.sleep(200); // Esperar un momento para evitar un bucle ocupado
                     }
                 }
+                Platform.runLater(() -> controlSimulacion());
                 return null;
             }
         };
@@ -125,8 +137,6 @@ public class SimuladorImpresion extends Stage {
         }
     }
 }
-
-
 
 class TareaImpresion {
     private final SimpleIntegerProperty numeroArchivo;

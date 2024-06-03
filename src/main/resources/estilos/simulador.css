@@ -1,0 +1,29 @@
+.root {
+    /*-fx-background-color: #f0f0f0;*/
+    -fx-background-image: url('https://img.freepik.com/vector-gratis/fondo-garabato-abstracto-plano_23-2149336498.jpg?size=626&ext=jpg&ga=GA1.1.1788614524.1717286400&semt=ais_user');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+}
+
+.table-view {
+    -fx-pref-height: 200px;
+    -fx-background-color: #eac1c9;
+}
+
+.table-column {
+    -fx-alignment: CENTER;
+}
+
+.button {
+    -fx-background-color: #e17689;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: #e17689;
+}
+

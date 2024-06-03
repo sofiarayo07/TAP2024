@@ -60,9 +60,9 @@ public class CuadroMagico extends Stage {
 
             file.writeInt(n);
 
-            int magicConstant = n * ((n * n) + 1) / 2;
+           // int magicConstant = n * ((n * n) + 1) / 2;
 
-            int num = 1;
+            //int num = 1;
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
                     int row = i + 1;
